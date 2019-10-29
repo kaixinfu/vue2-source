@@ -1,16 +1,19 @@
 <template>
   <div id="app">
-    <HelloWorld msg="hello world"/>
+    <A />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import A from './components/tongxun/A.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    A
+  },
+  mounted() {
+
   }
 }
 </script>
