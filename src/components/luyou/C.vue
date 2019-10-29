@@ -1,29 +1,18 @@
 <template>
   <div class="hello">
-    <h1>{{$attrs.msg}}</h1>
-    <A11 />
+    <h1>C</h1>
   </div>
 </template>
 
 <script>
-import A11 from './A11';
+
 export default {
-  name: 'A1',
+  name: 'C',
   props: {
 
   },
   mounted() {
-    console.log('......props', this.props);
-    console.log('......this.$attr', this.$attrs);
-  },
-  components: {
-    A11
-  },
-  created() {
-    console.log('A1........created');
-    this.$bus.$on('go', (val) => {
-      console.log('我是祖先 =====>>> A1', val)
-    })
+
   }
 }
 </script>

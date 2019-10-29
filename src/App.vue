@@ -1,6 +1,10 @@
 <template>
   <div id="app">
-    <A />
+    <div>
+      <router-link to="/">BBBB</router-link> |
+      <router-link to="/C">CCCC</router-link>
+    </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -11,6 +15,9 @@ export default {
   name: 'app',
   components: {
     A
+  },
+  beforeCreate() {
+    console.log('APP ........ beforeCreate')
   },
   mounted() {
 
@@ -23,7 +30,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /*text-align: center;*/
   color: #2c3e50;
   margin-top: 60px;
 }
