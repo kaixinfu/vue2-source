@@ -28,7 +28,7 @@
     data: {
       name: "I am test.",
       age:12,
-      html:'<button>这是一个按钮</button>'
+      html:'<button @click="changeName2">这是一个按钮</button>'
     },
     created(){
       console.log('开始啦')
@@ -38,8 +38,14 @@
     },
     methods:{
       changeName(){
-        this.name = 'hello vue source' ;
+        console.log('.........dddd')
+        this.name = 'hello vue 111111111' ;
         this.age = 1
+      },
+      changeName2(){
+        console.log('.........222222222')
+        this.name = 'hello vue 2222222222' ;
+        this.age = 2
       }
     }
   })

@@ -37,25 +37,47 @@ class Compiler {
       let _value = attr.nodeValue;
       if (this.isDirective(_name)) {
         this.compilerDirective(node, _value, _name.substring(2))
+      } else if (this.isEvent(_name)) {
+        this.compilerEvent(node, _name.substring(1), _value)
       }
     })
   }
   isDirective(key) {
     return key.indexOf('v-') > -1
   }
+  isEvent(key) {
+    return key.indexOf('@') > -1
+  }
   compilerDirective(node, key, type) {
-    this.update(node, key, 'text')
+    this.update(node, key, type)
+  }
+  compilerEvent(node, eventName, eventFn) {
+    let fn = this.vue.$options.methods && this.vue.$options.methods[eventFn];
+    if (fn) {
+      node.addEventListener(eventName, fn.bind(this.vue))
+    }
   }
   update(node, key, type) {
     let updaterFn = this[`${type}Update`];
     if (updaterFn) {
-      updaterFn(node, this.vue.$data[key]);
+      updaterFn.call(this.vue, node, this.vue.$data[key]);
     }
     new Watcher(this.vue, key, function (val) {
-      updaterFn && updaterFn(node, val)
+      updaterFn && updaterFn.call(this.vue, node, val)
     })
   }
   textUpdate(node, value) {
     node.textContent = value;
+  }
+  htmlUpdate(node, value) {
+    node.innerHTML = value;
+  }
+  modelUpdate(node, value) {
+    let _key = node.getAttribute('v-model');
+    node.addEventListener('input', (val) => {
+      if (this) {
+        this.$data[_key] = val.target.value;
+      }
+    })
   }
 }
