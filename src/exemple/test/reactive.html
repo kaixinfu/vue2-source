@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue</title>
+</head>
+
+<body>
+<div id="app">
+    <h1>响应式</h1>
+    <p>{{obj.foo}}</p>
+</div>
+
+<script src="./vue.js"></script>
+
+<script>
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      obj: {
+        foo: 'foo'
+      }
+    },
+    created(){
+      setTimeout(()=>{
+        this.obj.foo = 'fdshkjfh'
+      }, 1500)
+    }
+  })
+</script>
+</body>
+</html>
