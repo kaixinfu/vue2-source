@@ -25,7 +25,7 @@ npm i -g rollup
 ### 生成源文件
 
 ```
- npm run dev
+ npm run debug
 ```
 
 ### 创建调试文件，examples/commits/index.html
