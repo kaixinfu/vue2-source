@@ -1,26 +1,33 @@
-# vue-source
+## vue-source 用于调试 vue 源码的项目
 
-## Project setup
-```
-yarn install
-```
+### 迁出 vue 项目
 
-### Compiles and hot-reloads for development
 ```
-yarn run dev
+git clone https://github.com/vuejs/vue.git
 ```
 
-### Compiles and minifies for production
 ```
-yarn run build
-```
-
-### Run your tests
-```
-yarn run test
+npm i
 ```
 
-### Lints and fixes files
 ```
-yarn run lint
+npm i -g rollup
 ```
+
+### 在 package.json 添加打包脚本
+
+--sourcemap 必不可少，只有加了这个参数，看的的才是源文件
+
+```
+"debug": "rollup -w -c scripts/config.js --sourcemap --environment TARGET:web-full-dev"
+```
+
+### 生成源文件
+
+```
+ npm run dev
+```
+
+### 创建调试文件，examples/commits/index.html
+
+就可以使用 vscode open with server 调试了
