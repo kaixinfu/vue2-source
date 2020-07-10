@@ -10,16 +10,16 @@
 
 <body>
   <div id="app">
-    <h1>
-      <span>index</span>
-    </h1>
-    <p>{{obj.cur}}</p>
-    <button @click="handleClick">+</button>
+    <span>{{obj.cur}}</span>
+    <comp />
   </div>
 
   <script src="../../dist/vue.js"></script>
 
   <script>
+    Vue.component("comp", {
+      template: `<div>comp</div>`
+    })
     var vm = new Vue({
       el: '#app',
       data: {

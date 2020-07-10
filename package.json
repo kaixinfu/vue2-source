@@ -44,10 +44,6 @@
     "commit": "git-cz",
     "debug": "rollup -w -c scripts/config.js --sourcemap --environment TARGET:web-full-dev"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "node scripts/verify-commit-msg.js"
-  },
   "lint-staged": {
     "*.js": [
       "eslint --fix",
